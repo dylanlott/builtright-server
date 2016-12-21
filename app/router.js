@@ -29,7 +29,6 @@ const IndexController = Nodal.require('app/controllers/index_controller.js');
 
 /* generator: begin imports */
 
-const V1sController = Nodal.require('app/controllers/v1s_controller.js');
 const PartsController = Nodal.require('app/controllers/parts_controller.js');
 const BuildsController = Nodal.require('app/controllers/builds_controller.js');
 const CommentsController = Nodal.require('app/controllers/comments_controller.js');
@@ -40,7 +39,6 @@ router.route('/').use(IndexController);
 
 /* generator: begin routes */
 
-router.route('/v1s/{id}').use(V1sController);
 router.route('/parts/{id}').use(PartsController);
 router.route('/builds/{id}').use(BuildsController);
 router.route('/comments/{id}').use(CommentsController);
