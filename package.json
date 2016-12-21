@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "bcryptjs": "^2.4.0",
+    "flightplan": "^0.6.15",
     "nodal": "0.12.6"
   },
   "devDependencies": {
