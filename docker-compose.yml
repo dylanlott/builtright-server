@@ -1,0 +1,15 @@
+version: '2'
+services:
+  postgres:
+    image: postgres
+    ports:
+      - '5432:5432'
+  web:
+    build: .
+    volumes:
+      - .:/builtright
+    ports:
+      - '3000:3000'
+    links:
+      - postgres
+    working_dir: /builtright
