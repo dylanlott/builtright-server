@@ -32,6 +32,9 @@ const IndexController = Nodal.require('app/controllers/index_controller.js');
 const PartsController = Nodal.require('app/controllers/parts_controller.js');
 const BuildsController = Nodal.require('app/controllers/builds_controller.js');
 const CommentsController = Nodal.require('app/controllers/comments_controller.js');
+const AccessTokensController = Nodal.require('app/controllers/access_tokens_controller.js');
+const UsersController = Nodal.require('app/controllers/users_controller.js');
+const PostsController = Nodal.require('app/controllers/posts_controller.js');
 
 /* generator: end imports */
 
@@ -42,6 +45,9 @@ router.route('/').use(IndexController);
 router.route('/parts/{id}').use(PartsController);
 router.route('/builds/{id}').use(BuildsController);
 router.route('/comments/{id}').use(CommentsController);
+router.route('/access_tokens/{id}').use(AccessTokensController);
+router.route('/users/{id}').use(UsersController);
+router.route('/posts/{id}').use(PostsController);
 
 /* generator: end routes */
 

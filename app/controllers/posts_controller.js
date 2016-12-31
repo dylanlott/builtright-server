@@ -1,14 +1,14 @@
 'use strict';
 
 const Nodal = require('nodal');
-const Build = Nodal.require('app/models/build.js');
+const Post = Nodal.require('app/models/post.js');
 const AuthController = Nodal.require('app/controllers/auth_controller.js');
 
-class BuildsController extends AuthController {
+class PostsController extends AuthController {
 
   index() {
 
-    Build.query()
+    Post.query()
       .where(this.params.query)
       .end((err, models) => {
 
@@ -20,7 +20,7 @@ class BuildsController extends AuthController {
 
   show() {
 
-    Build.find(this.params.route.id, (err, model) => {
+    Post.find(this.params.route.id, (err, model) => {
 
       this.respond(err || model);
 
@@ -34,15 +34,14 @@ class BuildsController extends AuthController {
 
       if (err) return this.respond(err);
 
-      this.params.body.data.user = user.get('id');
-
-      Build.create(this.params.body, (err, model) => {
+      Post.create(this.params.body, (err, model) => {
 
         this.respond(err || model);
 
       });
 
     })
+
 
   }
 
@@ -52,14 +51,13 @@ class BuildsController extends AuthController {
 
       if (err) return this.respond(err);
 
-      Build.update(this.params.route.id, this.params.body, (err, model) => {
+      Post.update(this.params.route.id, this.params.body, (err, model) => {
 
         this.respond(err || model);
 
       });
 
-    });
-
+    })
 
   }
 
@@ -69,7 +67,7 @@ class BuildsController extends AuthController {
 
       if (err) return this.respond(err);
 
-      Build.destroy(this.params.route.id, (err, model) => {
+      Post.destroy(this.params.route.id, (err, model) => {
 
         this.respond(err || model);
 
@@ -81,4 +79,4 @@ class BuildsController extends AuthController {
 
 }
 
-module.exports = BuildsController;
+module.exports = PostsController;

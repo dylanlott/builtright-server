@@ -19,3 +19,31 @@ docker run -d --name builtrightpostgres -p 5432:5432 -v builtright-pg:/var/lib/p
 ```sh
 docker build -t builtright-nodal .
 ```
+
+## Documentation
+
+### Login
+
+POST `/access_token`
+
+```json
+{
+    "username": "dylanlott",
+    "password": "password",
+    "grant_type": "password"
+}
+```
+
+### Sign Up
+
+POST `/users`
+
+```json
+{
+    "email": "<email>",
+    "username": "<username>",
+    "password": "<password>"
+}
+```
+
+Email is an optional argument.
