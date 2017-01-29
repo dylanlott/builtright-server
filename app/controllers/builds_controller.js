@@ -8,14 +8,13 @@ class BuildsController extends AuthController {
 
   index() {
 
-    Build.query()
-      .where(this.params.query)
-      .end((err, models) => {
+      Build.query()
+        .where(this.params.query)
+        .end((err, models) => {
 
-        this.respond(err || models);
+          this.respond(err || models);
 
-      });
-
+        });
   }
 
   show() {
@@ -30,11 +29,9 @@ class BuildsController extends AuthController {
 
   create() {
 
-    this.authorize((err, accessToken, user) => {
+    this.authorize((err, token, user) => {
 
       if (err) return this.respond(err);
-
-      this.params.body.data.user = user.get('id');
 
       Build.create(this.params.body, (err, model) => {
 
@@ -50,6 +47,8 @@ class BuildsController extends AuthController {
 
     this.authorize((err, accessToken, user) => {
 
+      console.log('update user: ', user);
+
       if (err) return this.respond(err);
 
       Build.update(this.params.route.id, this.params.body, (err, model) => {
@@ -59,7 +58,6 @@ class BuildsController extends AuthController {
       });
 
     });
-
 
   }
 
