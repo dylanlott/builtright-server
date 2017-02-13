@@ -8,10 +8,11 @@ class UsersController extends Nodal.Controller {
   index() {
 
     User.query()
+      .join('builds')
       .where(this.params.query)
       .end((err, models) => {
 
-        this.respond(err || models);
+        this.respond(err || models, ['id', 'username', 'email', 'created_at']);
 
       });
 
@@ -21,7 +22,7 @@ class UsersController extends Nodal.Controller {
 
     User.find(this.params.route.id, (err, model) => {
 
-      this.respond(err || model);
+      this.respond(err || model, ['id', 'username', 'email', 'created_at']);
 
     });
 
@@ -33,7 +34,7 @@ class UsersController extends Nodal.Controller {
 
       console.log('USER CREATE: ', this.params.body)
 
-      this.respond(err || model);
+      this.respond(err || model, ['id', 'username', 'email', 'created_at']);
 
     });
 
@@ -43,7 +44,7 @@ class UsersController extends Nodal.Controller {
 
     User.update(this.params.route.id, this.params.body, (err, model) => {
 
-      this.respond(err || model);
+      this.respond(err || model, ['id', 'username', 'email', 'created_at']);
 
     });
 
@@ -53,7 +54,7 @@ class UsersController extends Nodal.Controller {
 
     User.destroy(this.params.route.id, (err, model) => {
 
-      this.respond(err || model);
+      this.respond(err || model, ['id', 'username', 'email', 'created_at']);
 
     });
 

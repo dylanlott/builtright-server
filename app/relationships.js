@@ -2,15 +2,11 @@
 
 const Nodal = require('nodal');
 
-/* Include this file to enable Model relationships */
+const Post = Nodal.require('app/models/post.js');
+const User = Nodal.require('app/models/user.js');
+const Part = Nodal.require('app/models/part.js');
+const Comment = Nodal.require('app/models/comment.js');
+const Build = Nodal.require('app/models/build.js');
 
-/* For example...
-
-  const Post = Nodal.require('app/models/post.js');
-  const Comment = Nodal.require('app/models/comment.js');
-
-  Comment.joinsTo(Post, {multiple: true});
-
-*/
 
 module.exports = {}; // Don't need to export anything

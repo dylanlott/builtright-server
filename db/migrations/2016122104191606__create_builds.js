@@ -4,26 +4,57 @@ const Nodal = require('nodal');
 
 class CreateBuilds extends Nodal.Migration {
 
-  constructor(db) {
-    super(db);
-    this.id = 2016122104191606;
-  }
+    constructor(db) {
+        super(db);
+        this.id = 2016122104191606;
+    }
 
-  up() {
+    up() {
 
-    return [
-      this.createTable("builds", [{"name":"name","type":"string"},{"name":"description","type":"text"},{"name":"user","type":"int"},{"name":"make","type":"string"},{"name":"model","type":"string"},{"name":"year","type":"int"},{"name":"trim","type":"string"},{"name":"rating","type":"float"},{"name":"engine","type":"string"},{"name":"misc","type":"json"}])
-    ];
+        return [this.createTable("builds", [
+                {
+                    "name": "name",
+                    "type": "string"
+                }, {
+                    "name": "description",
+                    "type": "text"
+                }, {
+                    "name": "user_id",
+                    "type": "int"
+                }, {
+                    "name": "make",
+                    "type": "string"
+                }, {
+                    "name": "model",
+                    "type": "string"
+                }, {
+                    "name": "year",
+                    "type": "int"
+                }, {
+                    "name": "trim",
+                    "type": "string"
+                }, {
+                    "name": "rating",
+                    "type": "float"
+                }, {
+                    "name": "engine",
+                    "type": "string"
+                }, {
+                    "name": "misc",
+                    "type": "json"
+                }, {
+                    "name": "comment_id",
+                    "type": "int"
+                }
+            ])];
 
-  }
+    }
 
-  down() {
+    down() {
 
-    return [
-      this.dropTable("builds")
-    ];
+        return [this.dropTable("builds")];
 
-  }
+    }
 
 }
 

@@ -12,7 +12,35 @@ class CreatePosts extends Nodal.Migration {
   up() {
 
     return [
-      this.createTable("posts", [])
+      this.createTable("posts", [
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "body",
+          "type": "text"
+        },
+        {
+          "name": "published",
+          "type": "boolean"
+        },
+        {
+          "name": "featured_image",
+          "type": "string"
+        },
+        {
+          "name": "user_id",
+          "type": "int"
+        },
+        {
+          "name": "votes",
+          "type": "int"
+        }, {
+          "name": "admin_blog",
+          "type": "boolean"
+        }
+      ])
     ];
 
   }

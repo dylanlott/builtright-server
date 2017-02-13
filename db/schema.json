@@ -29,7 +29,7 @@
         {"name": "id", "type": "serial", "properties": {"nullable":false,"primary_key":true,"auto_increment":true}},
         {"name": "name", "type": "string", "properties": {}},
         {"name": "description", "type": "text", "properties": {}},
-        {"name": "user", "type": "int", "properties": {}},
+        {"name": "user_id", "type": "int", "properties": {}},
         {"name": "make", "type": "string", "properties": {}},
         {"name": "model", "type": "string", "properties": {}},
         {"name": "year", "type": "int", "properties": {}},
@@ -37,6 +37,7 @@
         {"name": "rating", "type": "float", "properties": {}},
         {"name": "engine", "type": "string", "properties": {}},
         {"name": "misc", "type": "json", "properties": {}},
+        {"name": "comment_id", "type": "int", "properties": {}},
         {"name": "created_at", "type": "datetime", "properties": {}},
         {"name": "updated_at", "type": "datetime", "properties": {}}
       ]
@@ -51,10 +52,13 @@
         {"name": "id", "type": "serial", "properties": {"nullable":false,"primary_key":true,"auto_increment":true}},
         {"name": "body", "type": "text", "properties": {}},
         {"name": "hidden", "type": "boolean", "properties": {}},
-        {"name": "user", "type": "int", "properties": {}},
+        {"name": "user_id", "type": "int", "properties": {}},
         {"name": "status", "type": "string", "properties": {}},
         {"name": "votes", "type": "int", "properties": {}},
         {"name": "flagged", "type": "boolean", "properties": {}},
+        {"name": "build_id", "type": "int", "properties": {}},
+        {"name": "post_id", "type": "int", "properties": {}},
+        {"name": "part_id", "type": "int", "properties": {}},
         {"name": "created_at", "type": "datetime", "properties": {}},
         {"name": "updated_at", "type": "datetime", "properties": {}}
       ]
@@ -68,14 +72,18 @@
       "columns": [
         {"name": "name", "type": "string", "properties": {}},
         {"name": "description", "type": "text", "properties": {}},
-        {"name": "id", "type": "string", "properties": {}},
+        {"name": "id", "type": "int", "properties": {"nullable":false,"primary_key":true,"auto_increment":true}},
         {"name": "price", "type": "float", "properties": {}},
         {"name": "url", "type": "string", "properties": {}},
         {"name": "brand", "type": "string", "properties": {}},
         {"name": "model", "type": "string", "properties": {}},
         {"name": "option", "type": "string", "properties": {}},
-        {"name": "user", "type": "int", "properties": {}},
+        {"name": "user_id", "type": "int", "properties": {}},
         {"name": "rating", "type": "float", "properties": {}},
+        {"name": "build_id", "type": "int", "properties": {}},
+        {"name": "for_sale", "type": "boolean", "properties": {}},
+        {"name": "sale_price", "type": "float", "properties": {}},
+        {"name": "misc", "type": "json", "properties": {}},
         {"name": "created_at", "type": "datetime", "properties": {}},
         {"name": "updated_at", "type": "datetime", "properties": {}}
       ]
@@ -88,6 +96,13 @@
 
       "columns": [
         {"name": "id", "type": "serial", "properties": {"nullable":false,"primary_key":true,"auto_increment":true}},
+        {"name": "title", "type": "string", "properties": {}},
+        {"name": "body", "type": "text", "properties": {}},
+        {"name": "published", "type": "boolean", "properties": {}},
+        {"name": "featured_image", "type": "string", "properties": {}},
+        {"name": "user_id", "type": "int", "properties": {}},
+        {"name": "votes", "type": "int", "properties": {}},
+        {"name": "admin_blog", "type": "boolean", "properties": {}},
         {"name": "created_at", "type": "datetime", "properties": {}},
         {"name": "updated_at", "type": "datetime", "properties": {}}
       ]
@@ -102,7 +117,10 @@
         {"name": "id", "type": "serial", "properties": {"nullable":false,"primary_key":true,"auto_increment":true}},
         {"name": "email", "type": "string", "properties": {"unique":true}},
         {"name": "password", "type": "string", "properties": {}},
-        {"name": "username", "type": "string", "properties": {}},
+        {"name": "username", "type": "string", "properties": {"unique":true}},
+        {"name": "display_image", "type": "string", "properties": {}},
+        {"name": "access_level", "type": "int", "properties": {}},
+        {"name": "admin", "type": "boolean", "properties": {}},
         {"name": "created_at", "type": "datetime", "properties": {}},
         {"name": "updated_at", "type": "datetime", "properties": {}}
       ]

@@ -4,26 +4,48 @@ const Nodal = require('nodal');
 
 class CreateUsers extends Nodal.Migration {
 
-  constructor(db) {
-    super(db);
-    this.id = 2016122104112908;
-  }
+    constructor(db) {
+        super(db);
+        this.id = 2016122104112908;
+    }
 
-  up() {
+    up() {
 
-    return [
-      this.createTable("users", [{"name":"email","type":"string","properties":{"unique":true}},{"name":"password","type":"string"},{"name":"username","type":"string"}])
-    ];
+        return [this.createTable("users", [
+                {
+                    "name": "email",
+                    "type": "string",
+                    "properties": {
+                        "unique": true
+                    }
+                }, {
+                    "name": "password",
+                    "type": "string"
+                }, {
+                    "name": "username",
+                    "type": "string",
+                    "properties": {
+                      "unique": true
+                    }
+                }, {
+                    "name": "display_image",
+                    "type": "string"
+                }, {
+                    "name": "access_level",
+                    "type": "int"
+                }, {
+                    "name": "admin",
+                    "type": "boolean"
+                }
+            ])];
 
-  }
+    }
 
-  down() {
+    down() {
 
-    return [
-      this.dropTable("users")
-    ];
+        return [this.dropTable("users")];
 
-  }
+    }
 
 }
 

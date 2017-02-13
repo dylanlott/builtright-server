@@ -13,6 +13,7 @@ class AuthController extends Nodal.Controller {
     AccessToken.verify(this.params, (err, accessToken, user) => {
 
       if (err) {
+        console.log('AUTH ERROR: ', err);
         return this.respond(err);
       }
 

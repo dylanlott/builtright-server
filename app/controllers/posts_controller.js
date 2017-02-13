@@ -12,7 +12,15 @@ class PostsController extends AuthController {
       .where(this.params.query)
       .end((err, models) => {
 
-        this.respond(err || models);
+        this.respond(err || models, [
+          'title',
+          'body',
+          'published',
+          'featured_image',
+          'user_id',
+          'votes',
+          'admin_blog'
+        ]);
 
       });
 

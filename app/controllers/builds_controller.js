@@ -9,10 +9,54 @@ class BuildsController extends AuthController {
   index() {
 
       Build.query()
+        .join('parts')
+        .join('user')
+        .join('comment')
         .where(this.params.query)
         .end((err, models) => {
 
-          this.respond(err || models);
+          this.respond(err || models, [
+            'id',
+            'name',
+            'description',
+            'user_id',
+            'make',
+            'model',
+            'year',
+            'trim',
+            'rating',
+            'engine',
+            'misc',
+            'created_at',
+            'updated_at',
+            {user: [
+              'id',
+              'username',
+              'email'
+            ]},
+            {parts: [
+              'name',
+              'description',
+              'id',
+              'price',
+              'url',
+              'brand',
+              'model',
+              'option',
+              'user_id',
+              'rating',
+              'created_at'
+            ]},
+            {comment: [
+              'body',
+              'user_id',
+              'status',
+              'build_id',
+              'post_id',
+              'part_id',
+              'flagged'
+            ]}
+          ]);
 
         });
   }
