@@ -20,6 +20,12 @@ docker run -d --name builtrightpostgres -p 5432:5432 -v builtright-pg:/var/lib/p
 docker build -t builtright-nodal .
 ```
 
+If you've started the database container before, you can simply run:
+
+```sh
+docker start builtrightpostgres
+```
+
 ## Documentation
 
 ### Login
