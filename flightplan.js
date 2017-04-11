@@ -19,6 +19,15 @@ plan.target('dev', {
   maxDeploys: 10
 });
 
+plan.remote('deploy', function(remote) {
+  remote.hostname();
+  remote.with('cd ' + remote.runtime.webRoot, function() {
+    remote.sudo('git pull origin master');
+    remote.sudo('yarn --ignore-engines');
+    remote.log('Deploy successful');
+  });
+}); 
+
 plan.remote('setup', function(remote) {
   remote.hostname();
   remote.sudo('mkdir -p ' + remote.runtime.webRoot);
